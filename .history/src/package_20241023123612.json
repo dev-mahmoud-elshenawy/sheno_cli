@@ -1,0 +1,19 @@
+{
+  "name": "sheno",
+  "version": "1.0.0",
+  "bin": {
+    "sheno": "./dist/cli.js" 
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0", 
+    "yargs": "^17.0.0", // Include yargs if used
+    "boxen": "^5.0.0"   // Include boxen if used
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0" // Include TypeScript as a dev dependency
+  }
+}
