@@ -1,7 +1,7 @@
 {
   "name": "sheno",
   "version": "1.0.0",
-  "description": "My CLI",
+  "description": "Sheno CLI",
   "main": "src/cli.ts",
   "type": "module",
   "scripts": {
