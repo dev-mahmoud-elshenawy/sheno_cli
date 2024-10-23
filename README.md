@@ -118,7 +118,7 @@ After installing Sheno, you can use it directly from the command line.
 
 Replace <module_name> with the desired name for your module.
 
-1. **To clean Flutter project, run**:
+2. **To clean Flutter project, run**:
 
 - By default, the clean command will use FVM for Flutter commands:
 
@@ -143,6 +143,34 @@ Replace <module_name> with the desired name for your module.
 - You can also use the --clean-cache flag to run with CocoaPods cache cleaning:
    ```bash
    sheno clean-ios --clean-cache
+   ```
+
+4. **To build the Flutter APK for release, run**:
+   
+- By default, the build command will use FVM for Flutter commands:
+
+   ```bash
+   sheno flutter-build-apk
+   ```
+
+- If you want to run the build command without FVM, use the --no-fvm flag:
+
+   ```bash
+   sheno flutter-build-apk --disable-fvm
+   ```
+
+5. **To build the Flutter Bundle for release, run**:
+   
+- By default, the build command will use FVM for Flutter commands:
+
+   ```bash
+   sheno flutter-build-bundle
+   ```
+
+- If you want to run the build command without FVM, use the --no-fvm flag:
+
+   ```bash
+   sheno flutter-build-bundle --disable-fvm
    ```
 
 ## Contact
