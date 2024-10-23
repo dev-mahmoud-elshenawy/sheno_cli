@@ -13,7 +13,8 @@
     "sheno":  "dist/cli.js" 
   },
   "keywords": [
-    "mycli"
+    "sheno_cli",
+    "sheno"
   ],
   "author": "Mahmoud ElShenawy",
   "license": "ISC",
