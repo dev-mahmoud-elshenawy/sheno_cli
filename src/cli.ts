@@ -7,6 +7,10 @@ import { hideBin } from "yargs/helpers";
 import { generateModule } from "./commands/generateModule.js";
 import { cleanProject } from "./commands/cleanProject.js";
 import { cleanIosProject } from "./commands/cleanProjectIos.js";
+import {
+  buildFlutterApk,
+  buildFlutterBundle,
+} from "./commands/buildReleases.js";
 import { boxenOptions } from "./styles.js";
 
 const greeting = chalk.white.bold("A7la Msa ^_^");
@@ -29,7 +33,7 @@ const options = yargs(hideBin(process.argv))
       return yargs.option("disable-fvm", {
         type: "boolean",
         default: false,
-        description: "Run without FVM (use --no-fvm to enable)",
+        description: "Run without FVM (use --disable-fvm to enable)",
       });
     },
     (argv) => {
@@ -51,6 +55,35 @@ const options = yargs(hideBin(process.argv))
     (argv) => {
       const cleanCache = argv.cleanCache as boolean;
       cleanIosProject(cleanCache);
+    }
+  )
+  .command(
+    "flutter-build-apk",
+    "Build the Flutter APK with release configuration, obfuscation, and split debug info",
+    (yargs) => {
+      return yargs.option("disable-fvm", {
+        type: "boolean",
+        default: false,
+        description: "Run without FVM (use --disable-fvm to enable)",
+      });
+    },
+    async (argv) => {
+      const noFvm = argv.disableFvm as boolean;
+      await buildFlutterApk(noFvm);
+    }
+  ) .command(
+    "flutter-build-bundle",
+    "Build the Flutter Bundle with release configuration, obfuscation, and split debug info",
+    (yargs) => {
+      return yargs.option("disable-fvm", {
+        type: "boolean",
+        default: false,
+        description: "Run without FVM (use --disable-fvm to enable)",
+      });
+    },
+    async (argv) => {
+      const noFvm = argv.disableFvm as boolean;
+      await buildFlutterBundle(noFvm);
     }
   )
   .help(true)
