@@ -15,7 +15,7 @@
   "keywords": [
     "mycli"
   ],
-  "author": "Mahmoud El Shenawy",
+  "author": "Mahmoud ElShenawy",
   "license": "ISC",
   "dependencies": {
     "arg": "^5.0.2",
