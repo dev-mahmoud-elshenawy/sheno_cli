@@ -42,6 +42,7 @@ To install Sheno globally on your system, follow these steps:
 ### macOS
 
 3. **Add Sheno to your PATH**:
+   
    ```bash
    echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.zshrc
    source ~/.zshrc
