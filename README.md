@@ -45,7 +45,7 @@ To install Sheno globally on your system, follow these steps:
    ```bash
    echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.zshrc
    source ~/.zshrc
-   ```  
+   ```
 
 ### Linux
 
@@ -53,7 +53,7 @@ To install Sheno globally on your system, follow these steps:
    ```bash
    echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.bashrc
    source ~/.bashrc
-   ```   
+   ```
    
 ### Windows
 
@@ -69,7 +69,7 @@ To install Sheno globally on your system, follow these steps:
 1. **Verify the installation**:
    ```bash
    sheno --version
-   ```      
+   ```
 
 ## Troubleshooting
 
@@ -110,7 +110,7 @@ After installing Sheno, you can use it directly from the command line.
 1. **To generate a new module, run**:
    ```bash
    sheno generate module <module_name>
-   ```    
+   ```
 
 Replace <module_name> with the desired name for your module.
 
