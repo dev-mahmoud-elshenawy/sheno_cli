@@ -51,6 +51,7 @@ To install Sheno globally on your system, follow these steps:
 ### Linux
 
 3. **Add Sheno to your PATH**:
+   
    ```bash
    echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.bashrc
    source ~/.bashrc
@@ -68,6 +69,7 @@ To install Sheno globally on your system, follow these steps:
 ***
 
 1. **Verify the installation**:
+   
    ```bash
    sheno --version
    ```
@@ -109,13 +111,14 @@ If you encounter issues with the installation or running Sheno, follow these ste
 After installing Sheno, you can use it directly from the command line.
 
 1. **To generate a new module, run**:
+   
    ```bash
    sheno generate module <module_name>
    ```
 
 Replace <module_name> with the desired name for your module.
 
-2. **To clean Flutter project, run**:
+1. **To clean Flutter project, run**:
 
 - By default, the clean command will use FVM for Flutter commands:
 
