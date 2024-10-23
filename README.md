@@ -56,9 +56,17 @@ To install Sheno globally on your system, follow these steps:
 	- Add the path to your npm global binaries (you can find this by running npm bin -g in your command prompt).
 	- Click OK to save your changes.
 
+### Linux
+
+3. **Add Sheno to your PATH**:
+   ```bash
+   echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.bashrc
+   source ~/.bashrc
+   ```   
+
 ***
 
-4. **Verify the installation**:
+1. **Verify the installation**:
    ```bash
    sheno --version
    ```      
