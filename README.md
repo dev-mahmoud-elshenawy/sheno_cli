@@ -16,9 +16,12 @@
 
 ## Features
 
-- **Generate Modules**: Easily create modules with a structured setup.
-- **Customizable**: Tailor the CLI commands and options to fit your specific needs.
+- **Customizable**: Sheno the CLI commands and options to fit your specific needs.
 - **User-Friendly**: Intuitive command-line experience with helpful output.
+- **Built-In Error Handling**: Informative error messages for easy troubleshooting.
+- **Cross-Platform Compatibility**: Consistent performance across macOS, Windows, and Linux.
+- **Flexible Configuration**: Customize options for different environments and setups.
+- **Detailed Command Documentation** Built-in help for all commands to guide usage.
 
 ## Installation
 
