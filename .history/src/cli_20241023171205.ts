@@ -27,13 +27,13 @@ const options = yargs(hideBin(process.argv))
     (yargs) => {
       return yargs.option("fvm", {
         type: "boolean",
-        default: true,
+        default: true, // Default behavior: FVM is used
         description: "Run with FVM (use --no-fvm to disable)",
       });
     },
     (argv) => {
-      const useFvm = argv.fvm as boolean;
-      cleanProject(!useFvm);
+      const useFvm = argv.fvm as boolean; // `fvm` will be `true` by default and `false` when `--no-fvm` is passed
+      cleanProject(!useFvm); // `!useFvm` is passed to match the `noFvm` parameter in `cleanProject`
     }
   )
   .help(true)

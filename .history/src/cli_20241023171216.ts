@@ -32,8 +32,8 @@ const options = yargs(hideBin(process.argv))
       });
     },
     (argv) => {
-      const useFvm = argv.fvm as boolean;
-      cleanProject(!useFvm);
+      const useFvm = argv.fvm as boolean; 
+      cleanProject(!useFvm); 
     }
   )
   .help(true)

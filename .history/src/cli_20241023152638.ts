@@ -5,7 +5,6 @@ import boxen from "boxen";
 import yargs from "yargs/yargs";
 import { hideBin } from "yargs/helpers";
 import { generateModule } from "./commands/generateModule.js";
-import { cleanProject } from "./commands/cleanProject.js";
 import { boxenOptions } from "./styles.js";
 
 const greeting = chalk.white.bold("A7la Msa ^_^");
@@ -25,15 +24,16 @@ const options = yargs(hideBin(process.argv))
     "clean",
     "Clean the Flutter project",
     (yargs) => {
-      return yargs.option("fvm", {
+      log(chalk.green("Cleaning the project without FVM..."));
+      return yargs.option("no-fvm", {
         type: "boolean",
-        default: true,
-        description: "Run with FVM (use --no-fvm to disable)",
+        description: "Run without FVM",
       });
     },
     (argv) => {
-      const useFvm = argv.fvm as boolean;
-      cleanProject(!useFvm);
+      log(chalk.green("Cleaning the project with FVM..."));
+      const noFvm = argv.noFvm as boolean;
+      cleanProject(noFvm);
     }
   )
   .help(true)

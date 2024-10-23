@@ -25,15 +25,14 @@ const options = yargs(hideBin(process.argv))
     "clean",
     "Clean the Flutter project",
     (yargs) => {
-      return yargs.option("fvm", {
+      return yargs.option("no-fvm", {
         type: "boolean",
-        default: true,
-        description: "Run with FVM (use --no-fvm to disable)",
+        description: "Run without FVM",
       });
     },
     (argv) => {
-      const useFvm = argv.fvm as boolean;
-      cleanProject(!useFvm);
+      const noFvm = argv.noFvm as boolean;
+      cleanProject(noFvm);
     }
   )
   .help(true)
