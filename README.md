@@ -94,7 +94,7 @@ If you encounter issues with the installation or running Sheno, follow these ste
 
 ## Usage
 
-- After installing Sheno, you can use it directly from the command line.
+After installing Sheno, you can use it directly from the command line.
 
 1. **To generate a new module, run**:
    ```bash
@@ -118,6 +118,9 @@ Replace <module_name> with the desired name for your module.
    ```
 
 3. **To clean the iOS project, run**:
+4. 
+- By default, the clean command will not clean CocoaPods cache:
+
    ```bash
    sheno clean-ios
    ```

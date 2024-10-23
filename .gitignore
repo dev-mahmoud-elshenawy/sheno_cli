@@ -51,3 +51,6 @@ jest-test-results.json
 
 # npm-debug.log
 npm-debug.log*
+
+# .history directory
+.history/
