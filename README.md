@@ -118,7 +118,7 @@ Replace <module_name> with the desired name for your module.
    ```
 
 3. **To clean the iOS project, run**:
-4. 
+   
 - By default, the clean command will not clean CocoaPods cache:
 
    ```bash
