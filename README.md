@@ -134,7 +134,6 @@ Replace <module_name> with the desired name for your module.
 
 For inquiries or feedback, feel free to reach out to me:
 
-- **Mahmoud Elshenawy**
 - **GitHub**: [dev-mahmoud-elshenawy](https://github.com/dev-mahmoud-elshenawy)
 - **Email**: [dev.m.elshenawy@icloud.com](mailto:dev.m.elshenawy@icloud.com)
 - **LinkedIn**: [dev-mahmoud-elshenawy](https://www.linkedin.com/in/dev-mahmoud-elshenawy)
