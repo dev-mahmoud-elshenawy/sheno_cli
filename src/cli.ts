@@ -95,7 +95,7 @@ const options = yargs(hideBin(process.argv))
   )
   .command("open-ios", "Open the iOS project in Xcode", {}, async () => {
     await openIos();
-  })
+  },)
   .command(
     "open-android",
     "Open the Android project in Android Studio",
