@@ -16,7 +16,7 @@ async function buildFlutterApk(noFvm: boolean) {
     : "fvm flutter build apk --release --obfuscate --split-debug-info=build/app/outputs/symbols";
 
   try {
-    const result = await execCommand(command);
+    await execCommand(command);
     LoggerHelpers.success("Flutter APK build successful.");
   } catch (error) {
     if (error instanceof Error) {
@@ -39,7 +39,7 @@ async function buildFlutterBundle(noFvm: boolean) {
     : "fvm flutter build appbundle --release --obfuscate --split-debug-info=build/app/outputs/symbols";
 
   try {
-    const result = await execCommand(command);
+    await execCommand(command);
     LoggerHelpers.success("Flutter Bundle build successful.");
   } catch (error) {
     if (error instanceof Error) {

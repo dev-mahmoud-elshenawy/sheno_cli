@@ -13,7 +13,7 @@ async function cleanProject(noFvm: boolean) {
     : "fvm flutter clean && rm -rf pubspec.lock && fvm flutter pub get";
 
   try {
-    const result = await execCommand(command);
+    await execCommand(command);
     LoggerHelpers.success("Clean successful.");
   } catch (error) {
     if (error instanceof Error) {
