@@ -44,7 +44,7 @@ export async function execCommand(command: string): Promise<string> {
           lastLogLine += ` ${dataString}`;
         } else {
           if (lastLogLine) {
-            LoggerHelpers.info(lastLogLine);
+            LoggerHelpers.success(lastLogLine);
           }
           lastLogLine = dataString;
         }
@@ -93,7 +93,7 @@ export async function execInIos(command: string): Promise<string> {
           lastLogLine += ` ${dataString}`;
         } else {
           if (lastLogLine) {
-            LoggerHelpers.info(lastLogLine);
+            LoggerHelpers.success(lastLogLine);
           }
           lastLogLine = dataString;
         }
