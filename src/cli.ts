@@ -19,10 +19,10 @@ console.log(boxen(greeting, boxenOptions));
 
 const options = yargs(hideBin(process.argv))
   .command(
-    "generate module <moduleName>",
+    "generate module <module_name>",
     "Generate a module with structure",
     (yargs) => {
-      return yargs.positional("moduleName", {
+      return yargs.positional("module_name", {
         describe: "The name of the module to generate",
         type: "string",
       });
