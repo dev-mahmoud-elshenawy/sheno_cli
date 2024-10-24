@@ -14,7 +14,7 @@ async function cleanProject(noFvm: boolean) {
 
   try {
     await execCommand(command);
-    LoggerHelpers.success("Clean successful.");
+    LoggerHelpers.success("Project cleaned successfully.");
   } catch (error) {
     if (error instanceof Error) {
       LoggerHelpers.error(`Error during clean: ${error.message}`);
