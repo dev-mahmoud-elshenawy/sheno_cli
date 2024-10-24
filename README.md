@@ -173,6 +173,18 @@ Replace <module_name> with the desired name for your module.
    sheno flutter-build-bundle --disable-fvm
    ```
 
+6. **To open the Android project in Android Studio, run:**:
+
+   ```bash
+   sheno open-android
+   ```
+
+7. **To open the iOS project in Xcode, run:**:
+
+   ```bash
+   sheno open-ios
+   ```
+
 ## Contact
 
 For inquiries or feedback, feel free to reach out to me:

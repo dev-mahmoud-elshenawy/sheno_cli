@@ -7,7 +7,9 @@ import {
 } from "../utils/fileHelpers.js";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
 
-export function generateModule(moduleName: string) {
+export { generateModule };
+
+function generateModule(moduleName: string) {
   const modulePath = path.join("lib", "module", moduleName);
   const directories = ["bloc", "event", "state", "screen", "import", "factory"];
 

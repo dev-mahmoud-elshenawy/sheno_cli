@@ -12,6 +12,7 @@ import {
   buildFlutterBundle,
 } from "./commands/buildReleases.js";
 import { boxenOptions } from "./styles.js";
+import { openIos, openAndroid } from "./commands/openProject.js";
 
 const greeting = chalk.white.bold("A7la Msa ^_^");
 console.log(boxen(greeting, boxenOptions));
@@ -90,6 +91,17 @@ const options = yargs(hideBin(process.argv))
     async (argv) => {
       const noFvm = argv.disableFvm as boolean;
       await buildFlutterBundle(noFvm);
+    }
+  )
+  .command("open-ios", "Open the iOS project in Xcode", {}, async () => {
+    await openIos();
+  })
+  .command(
+    "open-android",
+    "Open the Android project in Android Studio",
+    {},
+    async () => {
+      await openAndroid();
     }
   )
   .help(true)

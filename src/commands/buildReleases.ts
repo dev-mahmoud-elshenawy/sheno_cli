@@ -2,7 +2,9 @@ import chalk from "chalk";
 import { execCommand } from "../utils/execHelpers.js";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
 
-export async function buildFlutterApk(noFvm: boolean) {
+export { buildFlutterApk, buildFlutterBundle };
+
+async function buildFlutterApk(noFvm: boolean) {
   LoggerHelpers.info(
     noFvm
       ? "Building Flutter APK without FVM..."
@@ -25,7 +27,7 @@ export async function buildFlutterApk(noFvm: boolean) {
   }
 }
 
-export async function buildFlutterBundle(noFvm: boolean) {
+async function buildFlutterBundle(noFvm: boolean) {
   LoggerHelpers.info(
     noFvm
       ? "Building Flutter Bundle without FVM..."

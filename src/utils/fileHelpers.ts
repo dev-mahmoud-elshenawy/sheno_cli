@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import { capitalize } from "./stringHelpers.js";
 
-export function createDirectories(modulePath: string, directories: string[]) {
+export { createDirectories, writeFile, getClassName };
+
+function createDirectories(modulePath: string, directories: string[]) {
   directories.forEach((dir) => {
     const dirPath = path.join(modulePath, dir);
     if (!fs.existsSync(dirPath)) {
@@ -11,11 +13,11 @@ export function createDirectories(modulePath: string, directories: string[]) {
   });
 }
 
-export function writeFile(filePath: string, content: string) {
+function writeFile(filePath: string, content: string) {
   fs.writeFileSync(filePath, content);
 }
 
-export function getClassName(moduleName: string, type: string): string {
+function getClassName(moduleName: string, type: string): string {
   const defineItems = moduleName.replace(type, "").split("_");
   let className = "";
   defineItems.forEach((item) => {

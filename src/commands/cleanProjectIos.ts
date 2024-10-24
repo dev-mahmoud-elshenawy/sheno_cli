@@ -3,6 +3,8 @@ import * as path from "path";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
 import { execInIos, execCommand, iosDirectory } from "../utils/execHelpers.js";
 
+export { cleanIosProject };
+
 async function getFlutterSdkPath(): Promise<string> {
   const fvmDir = path.join(process.cwd(), ".fvm", "flutter_sdk");
 
@@ -58,7 +60,7 @@ async function ensureFlutterArtifactsExist() {
   }
 }
 
-export async function cleanIosProject(cleanCache: boolean) {
+async function cleanIosProject(cleanCache: boolean) {
   try {
     const xcodeProjPath = path.join(iosDirectory, "Runner.xcodeproj");
 

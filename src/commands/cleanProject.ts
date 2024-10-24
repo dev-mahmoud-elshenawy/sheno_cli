@@ -1,7 +1,9 @@
 import { execCommand } from "../utils/execHelpers.js";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
 
-export async function cleanProject(noFvm: boolean) {
+export { cleanProject };
+
+async function cleanProject(noFvm: boolean) {
   LoggerHelpers.info(
     noFvm ? "Running clean without FVM..." : "Running clean with FVM..."
   );
