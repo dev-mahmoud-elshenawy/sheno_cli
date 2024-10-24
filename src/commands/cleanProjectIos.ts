@@ -1,25 +1,26 @@
 import * as fs from "fs";
 import * as path from "path";
-import chalk from "chalk";
+import { LoggerHelpers } from "../utils/loggerHelpers.js";
 import { execInIos, execCommand, iosDirectory } from "../utils/execHelpers.js";
 
 async function getFlutterSdkPath(): Promise<string> {
   const fvmDir = path.join(process.cwd(), ".fvm", "flutter_sdk");
 
   if (fs.existsSync(fvmDir)) {
-    console.log(chalk.yellow("Using FVM Flutter SDK..."));
+    LoggerHelpers.info(`Using FVM Flutter SDK...`);
     return fvmDir;
   }
 
   const command = "which flutter";
   try {
     const globalFlutterPath = await execCommand(command);
-    console.log(chalk.yellow("Using Flutter SDK..."));
+    LoggerHelpers.info("Using Flutter SDK...");
     return path.dirname(globalFlutterPath.trim());
   } catch (error) {
-    throw new Error(
+    LoggerHelpers.error(
       "Flutter SDK not found. Please ensure Flutter is installed."
     );
+    throw error; // Rethrow to avoid execution of dependent functions
   }
 }
 
@@ -32,31 +33,27 @@ async function getFlutterXcframeworkPath(): Promise<string> {
 }
 
 async function ensureFlutterArtifactsExist() {
-  const flutterXcframeworkPath = await getFlutterXcframeworkPath(); // Use await here
+  const flutterXcframeworkPath = await getFlutterXcframeworkPath();
 
   if (!fs.existsSync(flutterXcframeworkPath)) {
-    console.log(chalk.red("Flutter.xcframework not found."));
+    LoggerHelpers.warning("Flutter.xcframework not found.");
 
     try {
-      console.log(chalk.yellow("Downloading Flutter.xcframework..."));
+      LoggerHelpers.info("Downloading Flutter.xcframework...");
       await execCommand("fvm flutter precache --ios");
-      console.log(
-        chalk.green("Flutter.xcframework has been downloaded successfully.")
+      LoggerHelpers.success(
+        "Flutter.xcframework has been downloaded successfully."
       );
     } catch (error) {
-      console.error(
-        chalk.red(
-          `Failed to run precache: ${
-            error instanceof Error ? error.message : error
-          }`
-        )
+      LoggerHelpers.error(
+        `Failed to run precache: ${
+          error instanceof Error ? error.message : error
+        }`
       );
     }
   } else {
-    console.log(
-      chalk.green(
-        "Flutter.xcframework exists. No need to run 'fvm flutter precache --ios'."
-      )
+    LoggerHelpers.success(
+      "Flutter.xcframework exists. No need to run 'fvm flutter precache --ios'."
     );
   }
 }
@@ -66,41 +63,41 @@ export async function cleanIosProject(cleanCache: boolean) {
     const xcodeProjPath = path.join(iosDirectory, "Runner.xcodeproj");
 
     if (!fs.existsSync(xcodeProjPath)) {
-      throw new Error("No Xcode project found in the ios directory.");
+      LoggerHelpers.error("No Xcode project found in the ios directory.");
     }
 
+    LoggerHelpers.info("Running clean for iOS project...");
 
     await ensureFlutterArtifactsExist();
 
-    console.log(chalk.yellow("Running clean for iOS project..."));
-
-    console.log(chalk.yellow("Removing Podfile.lock..."));
+    LoggerHelpers.info("Removing Podfile.lock...");
     await execInIos("rm -rf Podfile.lock");
-    console.log(chalk.green("Removed Podfile.lock."));
+    LoggerHelpers.success("Removed Podfile.lock.");
 
-    console.log(chalk.yellow("Deintegrating pods..."));
+    LoggerHelpers.info("Deintegrating pods...");
     await execInIos("pod deintegrate");
-    console.log(chalk.green("Deintegrated pods."));
+    LoggerHelpers.success("Deintegrated pods.");
 
     if (cleanCache) {
-      console.log(chalk.yellow("Cleaning CocoaPods cache..."));
+      LoggerHelpers.info("Cleaning CocoaPods cache...");
       await execInIos("pod cache clean --all");
-      console.log(chalk.green("Cleaned CocoaPods cache."));
+      LoggerHelpers.success("Cleaned CocoaPods cache.");
     }
-    console.log(chalk.yellow("Updating CocoaPods repositories..."));
-    await execInIos("pod repo update");
-    console.log(chalk.green("Updated CocoaPods repositories."));
 
-    console.log(chalk.yellow("Installing pods with repo update..."));
+    LoggerHelpers.info("Updating CocoaPods repositories...");
+    await execInIos("pod repo update");
+    LoggerHelpers.success("Updated CocoaPods repositories.");
+
+    LoggerHelpers.info("Installing pods with repo update...");
     await execInIos("pod install --repo-update");
-    console.log(chalk.green("Installed pods with repo update."));
+    LoggerHelpers.success("Installed pods with repo update.");
   } catch (error) {
     if (error instanceof Error) {
-      console.error(chalk.red(`Error: ${error.message}`));
+      LoggerHelpers.error(`Error: ${error.message}`);
     } else if (typeof error === "string") {
-      console.error(chalk.red(`Error: ${error}`));
+      LoggerHelpers.error(`Error: ${error}`);
     } else {
-      console.error(chalk.red(`Unknown error: ${JSON.stringify(error)}`));
+      LoggerHelpers.error(`Unknown error: ${JSON.stringify(error)}`);
     }
   }
 }

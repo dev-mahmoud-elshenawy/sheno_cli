@@ -20,7 +20,12 @@ const options = yargs(hideBin(process.argv))
   .command(
     "generate module <moduleName>",
     "Generate a module with structure",
-    {},
+    (yargs) => {
+      return yargs.positional("moduleName", {
+        describe: "The name of the module to generate",
+        type: "string",
+      });
+    },
     (argv) => {
       const moduleName = argv.moduleName as string;
       generateModule(moduleName);
@@ -71,7 +76,8 @@ const options = yargs(hideBin(process.argv))
       const noFvm = argv.disableFvm as boolean;
       await buildFlutterApk(noFvm);
     }
-  ) .command(
+  )
+  .command(
     "flutter-build-bundle",
     "Build the Flutter Bundle with release configuration, obfuscation, and split debug info",
     (yargs) => {

@@ -1,17 +1,19 @@
 import fs from "fs";
 import path from "path";
-import chalk from "chalk";
 import {
   createDirectories,
   writeFile,
   getClassName,
 } from "../utils/fileHelpers.js";
+import { LoggerHelpers } from "../utils/loggerHelpers.js";
 
 export function generateModule(moduleName: string) {
   const modulePath = path.join("lib", "module", moduleName);
   const directories = ["bloc", "event", "state", "screen", "import", "factory"];
 
   createDirectories(modulePath, directories);
+
+  LoggerHelpers.info(`Creating module structure for ${moduleName}...`);
 
   generateBloc(moduleName, path.join(modulePath, "bloc"));
   generateEvent(moduleName, path.join(modulePath, "event"));
@@ -20,7 +22,7 @@ export function generateModule(moduleName: string) {
   generateImport(moduleName, path.join(modulePath, "import"));
   generateStateFactory(moduleName, path.join(modulePath, "factory"));
 
-  console.log(chalk.green(`Module ${moduleName} created with full structure.`));
+  LoggerHelpers.success(`Module ${moduleName} created with full structure.`);
 }
 
 function generateBloc(moduleName: string, blocPath: string) {
@@ -42,8 +44,8 @@ class ${className}Bloc extends BaseBloc {
   `;
 
   writeFile(blocFilePath, template);
-  console.log(
-    chalk.green(`Bloc file ${moduleName}_bloc.dart created in ${blocPath}`)
+  LoggerHelpers.success(
+    `Bloc file ${moduleName}_bloc.dart created in ${blocPath}`
   );
 }
 
@@ -58,7 +60,9 @@ class ${className}InitialEvent extends BaseEvent {}
   `;
 
   writeFile(eventFilePath, template);
-  console.log(chalk.green(`Event file ${moduleName}_event.dart created in ${eventPath}`));
+  LoggerHelpers.success(
+    `Event file ${moduleName}_event.dart created in ${eventPath}`
+  );
 }
 
 function generateState(moduleName: string, statePath: string) {
@@ -74,7 +78,9 @@ class ${className}InitialState extends RenderDataState {
   `;
 
   writeFile(stateFilePath, template);
-  console.log(chalk.green(`State file ${moduleName}_state.dart created in ${statePath}`));
+  LoggerHelpers.success(
+    `State file ${moduleName}_state.dart created in ${statePath}`
+  );
 }
 
 function generateScreen(moduleName: string, screenPath: string) {
@@ -106,7 +112,9 @@ class _${className}ScreenState extends BaseScene<${className}Bloc, ${className}S
   `;
 
   writeFile(screenFilePath, template);
-  console.log(chalk.green(`Screen file ${moduleName}_screen.dart created in ${screenPath}`));
+  LoggerHelpers.success(
+    `Screen file ${moduleName}_screen.dart created in ${screenPath}`
+  );
 }
 
 function generateImport(moduleName: string, importPath: string) {
@@ -126,11 +134,16 @@ part '../factory/${moduleName}_state_factory.dart';
   `;
 
   writeFile(importFilePath, template);
-  console.log(chalk.green(`Import file ${moduleName}_import.dart created in ${importPath}`));
+  LoggerHelpers.success(
+    `Import file ${moduleName}_import.dart created in ${importPath}`
+  );
 }
 
 function generateStateFactory(moduleName: string, factoryPath: string) {
-  const factoryFilePath = path.join(factoryPath, `${moduleName}_state_factory.dart`);
+  const factoryFilePath = path.join(
+    factoryPath,
+    `${moduleName}_state_factory.dart`
+  );
   const className = getClassName(moduleName, "state_factory");
 
   const template = `
@@ -145,5 +158,7 @@ class ${className}StateFactory extends BaseStateFactory {
   `;
 
   writeFile(factoryFilePath, template);
-  console.log(chalk.green(`State Factory file ${moduleName}_state_factory.dart created in ${factoryPath}`));
+  LoggerHelpers.success(
+    `State Factory file ${moduleName}_state_factory.dart created in ${factoryPath}`
+  );
 }

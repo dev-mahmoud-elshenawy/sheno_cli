@@ -1,7 +1,11 @@
 import { exec, spawn } from "child_process";
 import { promisify } from "util";
 import path from "path";
-import chalk from "chalk";
+import { LoggerHelpers } from "../utils/loggerHelpers.js";
+
+export const iosDirectory = path.join(process.cwd(), "ios");
+
+const execAsync = promisify(exec);
 
 export function handleExecResult(
   err: Error | null,
@@ -9,20 +13,16 @@ export function handleExecResult(
   stderr: string
 ) {
   if (err) {
-    console.error(chalk.red(`Error: ${err.message}`));
+    LoggerHelpers.error(`Error: ${err.message}`);
     return;
   }
   if (stderr) {
-    console.error(chalk.red(`stderr: ${stderr}`));
+    LoggerHelpers.warning(`stderr: ${stderr}`);
   }
   if (stdout) {
-    console.log(chalk.green(`stdout: ${stdout}`));
+    LoggerHelpers.success(`stdout: ${stdout}`);
   }
 }
-
-export const iosDirectory = path.join(process.cwd(), "ios"); // Export it
-
-const execAsync = promisify(exec);
 
 export async function execCommand(command: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -44,7 +44,7 @@ export async function execCommand(command: string): Promise<string> {
           lastLogLine += ` ${dataString}`;
         } else {
           if (lastLogLine) {
-            console.log(chalk.green(lastLogLine));
+            LoggerHelpers.info(lastLogLine);
           }
           lastLogLine = dataString;
         }
@@ -52,12 +52,12 @@ export async function execCommand(command: string): Promise<string> {
     });
 
     process.stderr.on("data", (data) => {
-      console.error(chalk.red(data.toString()));
+      LoggerHelpers.error(data.toString());
     });
 
     process.on("close", (code) => {
       if (lastLogLine) {
-        console.log(chalk.green(lastLogLine));
+        LoggerHelpers.success(lastLogLine);
       }
 
       if (code !== 0) {
@@ -93,7 +93,7 @@ export async function execInIos(command: string): Promise<string> {
           lastLogLine += ` ${dataString}`;
         } else {
           if (lastLogLine) {
-            console.log(chalk.green(lastLogLine));
+            LoggerHelpers.info(lastLogLine);
           }
           lastLogLine = dataString;
         }
@@ -101,12 +101,12 @@ export async function execInIos(command: string): Promise<string> {
     });
 
     process.stderr.on("data", (data) => {
-      console.error(chalk.red(data.toString()));
+      LoggerHelpers.error(data.toString());
     });
 
     process.on("close", (code) => {
       if (lastLogLine) {
-        console.log(chalk.green(lastLogLine));
+        LoggerHelpers.success(lastLogLine);
       }
 
       if (code !== 0) {
