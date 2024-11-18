@@ -44,7 +44,7 @@ To install Sheno globally on your system, follow these steps:
 3. **Add Sheno to your PATH**:
    
    ```bash
-   echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.zshrc
+   echo 'export PATH="$PATH:/your_path/your_path/sheno_cli"' >> ~/.zshrc
    source ~/.zshrc
    ```
 
@@ -53,7 +53,7 @@ To install Sheno globally on your system, follow these steps:
 3. **Add Sheno to your PATH**:
    
    ```bash
-   echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.bashrc
+   echo 'export PATH="$PATH:/your_path/your_path/sheno_cli"' >> ~/.bashrc
    source ~/.bashrc
    ```
    
@@ -88,21 +88,47 @@ If you encounter issues with the installation or running Sheno, follow these ste
    npm install -g .
    ```
 
-3. **Add Sheno to your PATH**:
+Run the following command to retrieve the location of the global npm binaries:
+
+3. **Get the Global Binary Path**:
    ```bash
-   echo 'export PATH="$PATH:$(npm bin -g)"' >> ~/.zshrc
+   npm bin -g
+   ```
+
+The output will be a directory path, such as:
+
+   ```bash
+   /your_path/your_path/.npm/bin
+   ```
+
+4. **Manually Add the Path to Your Shell Configuration**:
+   
+Copy the path from the npm bin -g command output and add it to your shell configuration:
+
+5. **Add Sheno to your PATH**:
+
+### macOS/Linux (zsh)
+
+   ```bash
+   echo 'export PATH="$PATH:/your_path/your_path/.npm/bin"' >> ~/.zshrc
    source ~/.zshrc
    ```
 
-4. **If you receive a permission error**:
+### Linux (bash)
+   ```bash
+   echo 'export PATH="$PATH:/your_path/your_path/.npm/bin"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+6. **If you receive a permission error**:
    ```bash
    sheno --version
    zsh: permission denied: sheno
    ```
 
-5. **Change the permission of the Sheno binary**:
+7. **Change the permission of the Sheno binary**:
    ```bash
-   chmod +x $(npm bin -g)/sheno
+   chmod +x /your_path/your_path/sheno_cli
    ```
 
 
@@ -145,7 +171,12 @@ Replace <module_name> with the desired name for your module.
    sheno clean-ios --clean-cache
    ```
 
-4. **To build the Flutter APK for release, run**:
+- You can also use the --repo-update flag to run with update:
+   ```bash
+   sheno clean-ios --repo-update
+   ```
+
+1. **To build the Flutter APK for release, run**:
    
 - By default, the build command will use FVM for Flutter commands:
 

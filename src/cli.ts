@@ -51,16 +51,24 @@ const options = yargs(hideBin(process.argv))
     "clean-ios",
     "Clean the iOS project",
     (yargs) => {
-      return yargs.option("clean-cache", {
-        type: "boolean",
-        default: false,
-        description:
-          "Run with CocoaPods cache cleaning (use --clean-cache to enable)",
-      });
+      return yargs
+        .option("clean-cache", {
+          type: "boolean",
+          default: false,
+          description:
+            "Run with CocoaPods cache cleaning (use --clean-cache to enable)",
+        })
+        .option("repo-update", {
+          type: "boolean",
+          default: false,
+          description:
+            "Run pod install with repository update (use --repo-update to enable)",
+        });
     },
     (argv) => {
       const cleanCache = argv.cleanCache as boolean;
-      cleanIosProject(cleanCache);
+      const repoUpdate = argv.repoUpdate as boolean;
+      cleanIosProject(cleanCache, repoUpdate);
     }
   )
   .command(
@@ -95,7 +103,7 @@ const options = yargs(hideBin(process.argv))
   )
   .command("open-ios", "Open the iOS project in Xcode", {}, async () => {
     await openIos();
-  },)
+  })
   .command(
     "open-android",
     "Open the Android project in Android Studio",

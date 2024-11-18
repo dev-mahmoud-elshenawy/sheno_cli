@@ -1,7 +1,7 @@
 import * as fs from "fs";
 import * as path from "path";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
-import { execInIos, execCommand, iosDirectory } from "../utils/execHelpers.js";
+import { execInIos, execCommand, iosDirectory, execInIosWithRetry } from "../utils/execHelpers.js";
 
 export { cleanIosProject };
 
@@ -22,7 +22,7 @@ async function getFlutterSdkPath(): Promise<string> {
     LoggerHelpers.error(
       "Flutter SDK not found. Please ensure Flutter is installed."
     );
-    throw error; // Rethrow to avoid execution of dependent functions
+    throw error; 
   }
 }
 
@@ -60,12 +60,13 @@ async function ensureFlutterArtifactsExist() {
   }
 }
 
-async function cleanIosProject(cleanCache: boolean) {
+async function cleanIosProject(cleanCache: boolean, repoUpdate: boolean) {
   try {
     const xcodeProjPath = path.join(iosDirectory, "Runner.xcodeproj");
 
     if (!fs.existsSync(xcodeProjPath)) {
       LoggerHelpers.error("No Xcode project found in the ios directory.");
+      return;
     }
 
     LoggerHelpers.info("Running clean for iOS project...");
@@ -86,13 +87,27 @@ async function cleanIosProject(cleanCache: boolean) {
       LoggerHelpers.success("Cleaned CocoaPods cache.");
     }
 
-    LoggerHelpers.info("Updating CocoaPods repositories...");
-    await execInIos("pod repo update");
-    LoggerHelpers.success("Updated CocoaPods repositories.");
+    if (repoUpdate) {
+      LoggerHelpers.info("Updating CocoaPods repositories...");
+      try {
+        await execInIosWithRetry("pod repo update", 3, 10000); 
+        LoggerHelpers.success("Updated CocoaPods repositories.");
+      } catch (error) {
+        LoggerHelpers.error("Failed to update CocoaPods repositories. Retrying...");
+      }
 
-    LoggerHelpers.info("Installing pods with repo update...");
-    await execInIos("pod install --repo-update");
-    LoggerHelpers.success("Installed pods with repo update.");
+      LoggerHelpers.info("Installing pods with repo update...");
+      try {
+        await execInIosWithRetry("pod update", 3, 10000); 
+        LoggerHelpers.success("Installed pods with repo update.");
+      } catch (error) {
+        LoggerHelpers.error("Failed to update pods. Retrying...");
+      }
+    } else {
+      LoggerHelpers.info("Installing pods without repo update...");
+      await execInIosWithRetry("pod install", 3, 10000);
+      LoggerHelpers.success("Installed pods without repo update.");
+    }
   } catch (error) {
     if (error instanceof Error) {
       LoggerHelpers.error(`Error: ${error.message}`);
