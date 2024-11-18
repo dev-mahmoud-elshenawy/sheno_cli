@@ -33,7 +33,13 @@ To install Sheno globally on your system, follow these steps:
    cd sheno_cli
    ```
 
-2. **Install the dependencies && run**:
+To clone the repository at a specific version tag:
+
+   ```bash
+   git clone --branch v1.0.0 https://github.com/dev-mahmoud-elshenawy/sheno_cli.git
+   cd sheno_cli
+   ```
+1. **Install the dependencies && run**:
    ```bash
    npm install && npm run build
    ```   
