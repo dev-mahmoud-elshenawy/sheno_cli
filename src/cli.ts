@@ -13,6 +13,11 @@ import {
 } from "./commands/buildReleases.js";
 import { boxenOptions } from "./styles.js";
 import { openIos, openAndroid } from "./commands/openProject.js";
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const packageInfo: { version: string } = require("../package.json");
+
+const version = packageInfo.version;
 
 const greeting = chalk.white.bold("A7la Msa ^_^");
 console.log(boxen(greeting, boxenOptions));
@@ -112,5 +117,5 @@ const options = yargs(hideBin(process.argv))
       await openAndroid();
     }
   )
-  .help(true)
-  .version("1.0.0").argv;
+  .version(version)
+  .help(true).argv;
