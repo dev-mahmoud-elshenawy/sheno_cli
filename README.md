@@ -58,7 +58,7 @@ To install `sheno-cli` using Homebrew, follow the steps below:-
    brew upgrade sheno-cli
    ```
 
-1. **Install the dependencies && run**:
+2. **Install the dependencies && run**:
    ```bash
    npm install && npm run build
    ```   
