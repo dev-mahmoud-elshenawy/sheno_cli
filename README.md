@@ -41,8 +41,6 @@ To install Sheno globally on your system, follow these steps:
    ```
 
 To install `sheno-cli` using Homebrew, follow the steps below:-
-
-- Add Homebrew Tap:
   
 ## HTTPS (Default)
 
