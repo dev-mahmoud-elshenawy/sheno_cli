@@ -66,7 +66,6 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    brew tap dev-mahmoud-elshenawy/sheno_cli git@github.com:dev-mahmoud-elshenawy/sheno_cli.git
    ```
 
-## 
 - Install sheno-cli:
 
    ```bash
