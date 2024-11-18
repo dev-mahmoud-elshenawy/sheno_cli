@@ -33,13 +33,32 @@ To install Sheno globally on your system, follow these steps:
    cd sheno_cli
    ```
 
-To clone the repository at a specific version tag:
+- To clone the repository at a specific version tag:
 
    ```bash
    git clone --branch v1.0.0 https://github.com/dev-mahmoud-elshenawy/sheno_cli.git
    cd sheno_cli
    ```
-2. **Install the dependencies && run**:
+
+To install `sheno-cli` using Homebrew, follow the steps below:-
+
+- Add Homebrew Tap:
+   ```bash
+   brew tap dev-mahmoud-elshenawy/sheno_cli https://github.com/dev-mahmoud-elshenawy/sheno_cli/tree/main/homebrew
+   ```
+
+- Install sheno-cli:
+
+   ```bash
+   brew install sheno-cli
+   ```
+
+- Update sheno-cli:
+   ```bash
+   brew upgrade sheno-cli
+   ```
+
+1. **Install the dependencies && run**:
    ```bash
    npm install && npm run build
    ```   
@@ -101,7 +120,7 @@ Run the following command to retrieve the location of the global npm binaries:
    npm bin -g
    ```
 
-The output will be a directory path, such as:
+- The output will be a directory path, such as:
 
    ```bash
    /your_path/your_path/.npm/bin
@@ -109,7 +128,7 @@ The output will be a directory path, such as:
 
 4. **Manually Add the Path to Your Shell Configuration**:
    
-Copy the path from the npm bin -g command output and add it to your shell configuration:
+- Copy the path from the npm bin -g command output and add it to your shell configuration:
 
 5. **Add Sheno to your PATH**:
 
