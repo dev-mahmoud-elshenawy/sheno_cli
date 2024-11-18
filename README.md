@@ -176,7 +176,7 @@ Replace <module_name> with the desired name for your module.
    sheno clean-ios --repo-update
    ```
 
-1. **To build the Flutter APK for release, run**:
+4. **To build the Flutter APK for release, run**:
    
 - By default, the build command will use FVM for Flutter commands:
 
