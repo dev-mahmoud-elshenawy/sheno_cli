@@ -43,10 +43,30 @@ To install Sheno globally on your system, follow these steps:
 To install `sheno-cli` using Homebrew, follow the steps below:-
 
 - Add Homebrew Tap:
+  
+## HTTPS (Default)
+
+If you don’t mind entering your GitHub credentials when prompted, you can tap the formula using HTTPS.
+
    ```bash
-   brew tap dev-mahmoud-elshenawy/sheno_cli https://github.com/dev-mahmoud-elshenawy/sheno_cli/tree/main/homebrew
+   brew tap dev-mahmoud-elshenawy/sheno_cli 
    ```
 
+This method will prompt you for your GitHub username and password if authentication is required (for private repositories). If you are using two-factor authentication (2FA) on GitHub, you’ll need to use a Personal Access Token (PAT) instead of your password.
+
+- How to use a PAT for authentication:
+  1. Generate a Personal Access Token (PAT) from your GitHub account under Settings > Developer settings > Personal access tokens.
+  2. Use your GitHub username and PAT as the password when prompted.
+
+## SSH (Recommended)
+
+SSH authentication is recommended. This eliminates the need to enter your username and password each time.
+
+ ```bash
+   brew tap dev-mahmoud-elshenawy/sheno_cli git@github.com:dev-mahmoud-elshenawy/sheno_cli.git
+   ```
+
+## 
 - Install sheno-cli:
 
    ```bash
@@ -58,7 +78,7 @@ To install `sheno-cli` using Homebrew, follow the steps below:-
    brew upgrade sheno-cli
    ```
 
-2. **Install the dependencies && run**:
+1. **Install the dependencies && run**:
    ```bash
    npm install && npm run build
    ```   
