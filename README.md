@@ -67,6 +67,7 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    ```
 
 2. **Install the dependencies && run**:
+
    ```bash
    npm install && npm run build
    ```   
