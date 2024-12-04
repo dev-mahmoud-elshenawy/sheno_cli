@@ -35,6 +35,10 @@ If you encounter any issues while using **Sheno CLI**, check the [Troubleshootin
 
 To learn how to use **Sheno CLI** and its various commands, refer to the [Usage Guide](https://github.com/dev-mahmoud-elshenawy/sheno_cli/blob/main/USAGE.md).
 
+## Changelog
+
+To learn more about the updates and changes in **Sheno CLI**, refer to the [Changelog Guide](https://github.com/dev-mahmoud-elshenawy/sheno_cli/blob/main/CHANGELOG.md).
+
 ## Contact
 
 For inquiries or feedback, feel free to reach out to me:
