@@ -16,7 +16,7 @@
 
 ## Features
 
-- **Customizable**: **Sheno** the CLI commands and options to fit your specific needs.
+- **Customizable**: The CLI commands and options to fit your specific needs.
 - **User-Friendly**: Intuitive command-line experience with helpful output.
 - **Built-In Error Handling**: Informative error messages for easy troubleshooting.
 - **Cross-Platform Compatibility**: Consistent performance across macOS, Windows, and Linux.
