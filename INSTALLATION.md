@@ -1,4 +1,3 @@
-
 # Installation Guide for Sheno CLI
 
 This guide provides various methods to install the **Sheno CLI Tool**. Whether you prefer installing via NPM, cloning the repository, or using Homebrew, choose the method that best suits your setup.
