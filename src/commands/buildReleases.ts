@@ -1,8 +1,14 @@
 import chalk from "chalk";
 import { execCommand } from "../utils/execHelpers.js";
 import { LoggerHelpers } from "../utils/loggerHelpers.js";
+import { incrementIosBuildVersion } from "../utils/iosBuildUpdate.js";
 
-export { buildFlutterApk, buildFlutterBundle };
+export {
+  buildFlutterApk,
+  buildFlutterBundle,
+  buildFlutterIos,
+  buildFlutterIpa,
+};
 
 async function buildFlutterApk(noFvm: boolean) {
   LoggerHelpers.info(
@@ -46,6 +52,56 @@ async function buildFlutterBundle(noFvm: boolean) {
       LoggerHelpers.error(`Error during Bundle build: ${error.message}`);
     } else {
       LoggerHelpers.error(`Error during Bundle build: ${error}`);
+    }
+  }
+}
+
+async function buildFlutterIos(noFvm: boolean) {
+  await incrementIosBuildVersion();
+
+  LoggerHelpers.info(
+    noFvm
+      ? "Building Flutter iOS app without FVM..."
+      : "Building Flutter iOS app with FVM..."
+  );
+
+  const command = noFvm
+    ? "flutter build ios --release"
+    : "fvm flutter build ios --release";
+
+  try {
+    await execCommand(command);
+    LoggerHelpers.success("Flutter iOS app build successful.");
+  } catch (error) {
+    if (error instanceof Error) {
+      LoggerHelpers.error(`Error during iOS build: ${error.message}`);
+    } else {
+      LoggerHelpers.error(`Error during iOS build: ${error}`);
+    }
+  }
+}
+
+async function buildFlutterIpa(noFvm: boolean) {
+  await incrementIosBuildVersion();
+
+  LoggerHelpers.info(
+    noFvm
+      ? "Creating release IPA without FVM..."
+      : "Creating release IPA with FVM..."
+  );
+
+  const command = noFvm
+    ? "flutter build ipa --release"
+    : "fvm flutter build ipa --release";
+
+  try {
+    await execCommand(command);
+    LoggerHelpers.success("Release IPA creation successful.");
+  } catch (error) {
+    if (error instanceof Error) {
+      LoggerHelpers.error(`Error during IPA creation: ${error.message}`);
+    } else {
+      LoggerHelpers.error(`Error during IPA creation: ${error}`);
     }
   }
 }

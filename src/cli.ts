@@ -10,10 +10,12 @@ import { cleanIosProject } from "./commands/cleanProjectIos.js";
 import {
   buildFlutterApk,
   buildFlutterBundle,
+  buildFlutterIos,
+  buildFlutterIpa,
 } from "./commands/buildReleases.js";
 import { boxenOptions } from "./styles.js";
 import { openIos, openAndroid } from "./commands/openProject.js";
-import { createRequire } from 'module';
+import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 const packageInfo: { version: string } = require("../package.json");
 
@@ -104,6 +106,36 @@ const options = yargs(hideBin(process.argv))
     async (argv) => {
       const noFvm = argv.disableFvm as boolean;
       await buildFlutterBundle(noFvm);
+    }
+  )
+  .command(
+    "flutter-build-ios",
+    "Build the Flutter iOS app with release configuration and increment the build version",
+    (yargs) => {
+      return yargs.option("disable-fvm", {
+        type: "boolean",
+        default: false,
+        description: "Run without FVM (use --disable-fvm to enable)",
+      });
+    },
+    async (argv) => {
+      const noFvm = argv.disableFvm as boolean;
+      await buildFlutterIos(noFvm);
+    }
+  )
+  .command(
+    "flutter-build-ipa",
+    "Create a release IPA with an updated build version number",
+    (yargs) => {
+      return yargs.option("disable-fvm", {
+        type: "boolean",
+        default: false,
+        description: "Run without FVM (use --disable-fvm to enable)",
+      });
+    },
+    async (argv) => {
+      const noFvm = argv.disableFvm as boolean;
+      await buildFlutterIpa(noFvm);
     }
   )
   .command("open-ios", "Open the iOS project in Xcode", {}, async () => {

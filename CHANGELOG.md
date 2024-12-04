@@ -10,6 +10,13 @@ We follow Semantic Versioning (SemVer) to indicate the nature of changes:
 
 Each section lists the changes in chronological order, with the most recent release at the top. We also include links to relevant discussions or issues when appropriate.
 
+## [1.1.0] - 2024-11-21
+### Added
+- New Commands:
+  - `sheno flutter-build-ios`: Build the Flutter iOS app for release, with support for FVM and automatic version incrementing
+  - `sheno flutter-build-ipa`: Create a release IPA for the Flutter app, with support for FVM and automatic version incrementing.
+  - Enhanced iOS build workflows to include automatic version number incrementation before building.
+
 ## [1.0.0] - 2024-11-18
 ### Added
 - Initial release of the CLI tool with the following commands:

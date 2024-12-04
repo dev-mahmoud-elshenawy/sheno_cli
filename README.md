@@ -236,13 +236,42 @@ Replace <module_name> with the desired name for your module.
    sheno flutter-build-bundle --disable-fvm
    ```
 
-6. **To open the Android project in Android Studio, run:**:
+6. **To build the Flutter iOS app for release, run**:
+   
+- By default, the build command will use FVM for Flutter commands:
+
+   ```bash
+   sheno flutter-build-ios
+   ```
+
+- If you want to run the build command without FVM, use the --no-fvm flag:
+
+   ```bash
+   sheno flutter-build-ios --disable-fvm
+   ```
+
+7. **To create a release IPA for the Flutter app, run**:
+   
+- By default, the build command will use FVM for Flutter commands:
+
+   ```bash
+   sheno flutter-build-ipa
+   ```
+
+- If you want to run the build command without FVM, use the --no-fvm flag:
+
+   ```bash
+   sheno flutter-build-ipa --disable-fvm
+   ```
+
+
+8. **To open the Android project in Android Studio, run:**:
 
    ```bash
    sheno open-android
    ```
 
-7. **To open the iOS project in Xcode, run:**:
+9. **To open the iOS project in Xcode, run:**:
 
    ```bash
    sheno open-ios
