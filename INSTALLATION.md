@@ -12,9 +12,6 @@ This guide provides various methods to install the **Sheno CLI Tool**. Whether y
    npm install -g sheno_cli
    ```
 
-***
-
-
 2. **Install via Repository Clone**:
 
 - For users who want to work with the source code directly, you can clone the repository and build it locally.
@@ -32,8 +29,6 @@ cd sheno_cli
 npm install && npm run build
 ```
    
-***
-
 3. **Install via Homebrew**:
 
 - If you prefer using Homebrew to manage installations, follow these steps:
@@ -66,8 +61,6 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    ```bash
    npm install && npm run build
    ```   
-   
-***
 
 ### macOS
 
