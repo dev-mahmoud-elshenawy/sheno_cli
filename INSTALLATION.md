@@ -2,11 +2,11 @@
 
 This guide provides various methods to install the **Sheno CLI Tool**. Whether you prefer installing via NPM, cloning the repository, or using Homebrew, choose the method that best suits your setup.
 
-### Install via NPM**:
+## Install via NPM:
 
 - The easiest and most straightforward way to install the **Sheno CLI** is by using NPM. This method works on all platforms (macOS, Linux, and Windows).
 
-### Run the following command to install the CLI globally:
+# Run the following command to install the CLI globally:
 
    ```bash
    npm install -g sheno_cli
@@ -16,14 +16,14 @@ This guide provides various methods to install the **Sheno CLI Tool**. Whether y
 
 - For users who want to work with the source code directly, you can clone the repository and build it locally.
 
-### Clone the repository:
+# Clone the repository:
   
 ```bash
 git clone https://github.com/dev-mahmoud-elshenawy/sheno_cli.git
 cd sheno_cli
 ```
 
-### Install dependencies and build the project:
+# Install dependencies and build the project:
   
 ```bash
 npm install && npm run build
@@ -34,7 +34,7 @@ npm install && npm run build
 - If you prefer using Homebrew to manage installations, follow these steps:
 
   
-## HTTPS (Default)
+# HTTPS (Default)
 
 If you don’t mind entering your GitHub credentials when prompted, you can tap the formula using HTTPS.
 
@@ -48,7 +48,7 @@ This method will prompt you for your GitHub username and password if authenticat
   1. Generate a Personal Access Token (PAT) from your GitHub account under Settings > Developer settings > Personal access tokens.
   2. Use your GitHub username and PAT as the password when prompted.
 
-## SSH (Recommended)
+# SSH (Recommended)
 
 SSH authentication is recommended. This eliminates the need to enter your username and password each time.
 
@@ -56,13 +56,13 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    brew tap dev-mahmoud-elshenawy/sheno_cli git@github.com:dev-mahmoud-elshenawy/sheno_cli.git
    ```
 
-### Install the dependencies && run:
+# Install the dependencies && run:
 
    ```bash
    npm install && npm run build
    ```   
 
-## macOS
+# macOS
 
 # Add Sheno to your PATH:
    
@@ -73,7 +73,7 @@ SSH authentication is recommended. This eliminates the need to enter your userna
 
 ## Linux
 
-### Add Sheno to your PATH:
+# Add Sheno to your PATH:
    
    ```bash
    echo 'export PATH="$PATH:/your_path/your_path/sheno_cli"' >> ~/.bashrc
@@ -82,7 +82,7 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    
 ## Windows
 
-### Add Sheno to your PATH:
+- Add Sheno to your PATH:
 	- Search for “Environment Variables” in the Start menu.
 	- Click on “Environment Variables”.
 	- Under “System variables”, find the Path variable and click “Edit”.
