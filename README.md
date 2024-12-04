@@ -12,11 +12,11 @@
     </div>
 </div>
 
-**Sheno** is a powerful command-line interface (CLI) tool designed to streamline your workflows and automate repetitive tasks. With its user-friendly commands and robust functionality, Sheno helps you manage your projects efficiently and effectively.
+**Sheno** is a powerful command-line interface (CLI) tool designed to streamline your workflows and automate repetitive tasks. With its user-friendly commands and robust functionality, **Sheno** helps you manage your projects efficiently and effectively.
 
 ## Features
 
-- **Customizable**: Sheno the CLI commands and options to fit your specific needs.
+- **Customizable**: **Sheno** the CLI commands and options to fit your specific needs.
 - **User-Friendly**: Intuitive command-line experience with helpful output.
 - **Built-In Error Handling**: Informative error messages for easy troubleshooting.
 - **Cross-Platform Compatibility**: Consistent performance across macOS, Windows, and Linux.
@@ -25,13 +25,15 @@
 
 ## Installation
 
-
+For detailed instructions on how to install **Sheno CLI** on your system, refer to the [Installation Guide](https://github.com/dev-mahmoud-elshenawy/sheno_cli/blob/main/INSTALLATION.md).
 
 ## Troubleshooting
 
+If you encounter any issues while using **Sheno CLI**, check the [Troubleshooting Guide](https://github.com/dev-mahmoud-elshenawy/sheno_cli/blob/main/TROUBLESHOOT.md) for solutions to common problems.
 
 ## Usage
 
+To learn how to use **Sheno CLI** and its various commands, refer to the [Usage Guide](https://github.com/dev-mahmoud-elshenawy/sheno_cli/blob/main/USAGE.md).
 
 ## Contact
 

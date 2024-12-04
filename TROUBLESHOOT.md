@@ -2,7 +2,7 @@
 
 This troubleshooting guide is designed to help you diagnose and resolve common issues you may encounter while using the **Sheno CLI tool**. Whether you're facing installation problems, command execution errors, or unexpected behavior, this document provides helpful steps and tips to resolve them.
 
-If you encounter issues with the installation or running Sheno, follow these steps:
+If you encounter issues with the installation or running **Sheno**, follow these steps:
 
 1. **Build the project**:
    ```bash
