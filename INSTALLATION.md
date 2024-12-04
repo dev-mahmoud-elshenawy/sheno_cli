@@ -2,7 +2,7 @@
 
 This guide provides various methods to install the **Sheno CLI Tool**. Whether you prefer installing via NPM, cloning the repository, or using Homebrew, choose the method that best suits your setup.
 
-### Install via NPM:
+### Install via NPM**:
 
 - The easiest and most straightforward way to install the **Sheno CLI** is by using NPM. This method works on all platforms (macOS, Linux, and Windows).
 
@@ -62,7 +62,7 @@ SSH authentication is recommended. This eliminates the need to enter your userna
    npm install && npm run build
    ```   
 
-### macOS
+## macOS
 
 ## Add Sheno to your PATH:
    
