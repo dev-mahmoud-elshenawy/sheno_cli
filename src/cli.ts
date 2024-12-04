@@ -7,6 +7,7 @@ import { hideBin } from "yargs/helpers";
 import { generateModule } from "./commands/generateModule.js";
 import { cleanProject } from "./commands/cleanProject.js";
 import { cleanIosProject } from "./commands/cleanProjectIos.js";
+import { updateFlutterVersion } from "./commands/updateVersions.js";
 import {
   buildFlutterApk,
   buildFlutterBundle,
@@ -136,6 +137,36 @@ const options = yargs(hideBin(process.argv))
     async (argv) => {
       const noFvm = argv.disableFvm as boolean;
       await buildFlutterIpa(noFvm);
+    }
+  )
+  .command(
+    "flutter-update-version",
+    "Update version and build numbers for both Android and iOS",
+    (yargs) => {
+      return yargs
+        .option("app-version", {
+          type: "string",
+          description: "The version number to set for both Android and iOS",
+          demandOption: true,
+        })
+        .option("android-build", {
+          type: "string",
+          description: "The Android build number to set in pubspec.yaml",
+          demandOption: true,
+        })
+        .option("ios-build", {
+          type: "string",
+          description:
+            "The iOS build number to set using agvtool and Info.plist",
+          demandOption: true,
+        });
+    },
+    async (argv) => {
+      const version = argv["app-version"];
+      const androidBuildNumber = argv["android-build"];
+      const iosBuildNumber = argv["ios-build"];
+
+      await updateFlutterVersion(version, androidBuildNumber, iosBuildNumber);
     }
   )
   .command("open-ios", "Open the iOS project in Xcode", {}, async () => {

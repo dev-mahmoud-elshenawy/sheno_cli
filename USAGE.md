@@ -103,15 +103,22 @@ Replace <module_name> with the desired name for your module.
    ```bash
    sheno flutter-build-ipa --disable-fvm
    ```
+   
+8. **To update the Flutter version and build numbers for both Android and iOS, run**:
+   
+- This command allows you to set the version and build numbers for Android and iOS simultaneously:
 
+   ```bash
+   sheno flutter-update-version --app-version <version> --android-build <android-build-number> --ios-build <ios-build-number>
+   ```
 
-8. **To open the Android project in Android Studio, run:**:
+9. **To open the Android project in Android Studio, run:**:
 
    ```bash
    sheno open-android
    ```
 
-9. **To open the iOS project in Xcode, run:**:
+10. **To open the iOS project in Xcode, run:**:
 
    ```bash
    sheno open-ios
