@@ -64,7 +64,7 @@ SSH authentication is recommended. This eliminates the need to enter your userna
 
 ## macOS
 
-## Add Sheno to your PATH:
+# Add Sheno to your PATH:
    
    ```bash
    echo 'export PATH="$PATH:/your_path/your_path/sheno_cli"' >> ~/.zshrc
