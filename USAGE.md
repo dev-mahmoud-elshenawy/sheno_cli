@@ -112,14 +112,19 @@ Replace <module_name> with the desired name for your module.
    sheno flutter-update-version --app-version <version> --android-build <android-build-number> --ios-build <ios-build-number>
    ```
 
-9. **To open the Android project in Android Studio, run:**:
+9. **To open the Android project in Android Studio, run**:
+
+- Opens the Android module of your Flutter project in Android Studio for platform-specific development and debugging:
 
    ```bash
    sheno open-android
    ```
 
-10. **To open the iOS project in Xcode, run:**:
+10.  **To open the iOS project in Xcode, run**:
+    
+- Opens the iOS module of your Flutter project in Xcode for platform-specific changes and testing:
 
    ```bash
    sheno open-ios
    ```
+   
