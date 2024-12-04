@@ -1,8 +1,8 @@
 class ShenoCli < Formula
     desc "Sheno CLI Tool"
     homepage "https://github.com/dev-mahmoud-elshenawy/sheno_cli"
-    url "https://github.com/dev-mahmoud-elshenawy/sheno_cli/archive/v1.0.0.tar.gz"
-    sha256 "af150f0fd264b6e53f6acee4c651c50f79fb793609098dab4591497645633b69"
+    url "https://github.com/dev-mahmoud-elshenawy/sheno_cli/archive/v1.1.0.tar.gz"
+    sha256 "0228171a2d009bfdef9ad2caaed942f9d3dafbdc5977e813080c65eb12898b6c"
     license "ISC"
   
     depends_on "node"
