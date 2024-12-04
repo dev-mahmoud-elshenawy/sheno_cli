@@ -21,7 +21,7 @@
 - **Built-In Error Handling**: Informative error messages for easy troubleshooting.
 - **Cross-Platform Compatibility**: Consistent performance across macOS, Windows, and Linux.
 - **Flexible Configuration**: Customize options for different environments and setups.
-- **Detailed Command Documentation** Built-in help for all commands to guide usage.
+- **Detailed Command Documentation**: Built-in help for all commands to guide usage.
 
 ## Installation
 
