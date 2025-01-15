@@ -31,8 +31,7 @@ function generateBloc(moduleName: string, blocPath: string) {
   const blocFilePath = path.join(blocPath, `${moduleName}_bloc.dart`);
   const className = getClassName(moduleName, "bloc");
 
-  const template = `
-part of '../import/${moduleName}_import.dart';
+  const template = `part of '../import/${moduleName}_import.dart';
 
 class ${className}Bloc extends BaseBloc {
     ${className}Bloc() : super(
@@ -55,8 +54,7 @@ function generateEvent(moduleName: string, eventPath: string) {
   const eventFilePath = path.join(eventPath, `${moduleName}_event.dart`);
   const className = getClassName(moduleName, "event");
 
-  const template = `
-part of '../import/${moduleName}_import.dart';
+  const template = `part of '../import/${moduleName}_import.dart';
 
 class ${className}InitialEvent extends BaseEvent {}
   `;
@@ -71,8 +69,7 @@ function generateState(moduleName: string, statePath: string) {
   const stateFilePath = path.join(statePath, `${moduleName}_state.dart`);
   const className = getClassName(moduleName, "state");
 
-  const template = `
-part of '../import/${moduleName}_import.dart';
+  const template = `part of '../import/${moduleName}_import.dart';
 
 class ${className}InitialState extends RenderDataState {
   ${className}InitialState() : super(null);
@@ -89,8 +86,7 @@ function generateScreen(moduleName: string, screenPath: string) {
   const screenFilePath = path.join(screenPath, `${moduleName}_screen.dart`);
   const className = getClassName(moduleName, "screen");
 
-  const template = `
-part of '../import/${moduleName}_import.dart';
+  const template = `part of '../import/${moduleName}_import.dart';
 
 class ${className}Screen extends StatefulWidget {
   final ${className}Bloc bloc;
@@ -123,8 +119,7 @@ function generateImport(moduleName: string, importPath: string) {
   const importFilePath = path.join(importPath, `${moduleName}_import.dart`);
   const className = getClassName(moduleName, "import");
 
-  const template = `
-import 'package:flutter/material.dart';
+  const template = `import 'package:flutter/material.dart';
 import 'package:opticore/opticore.dart';
 
 part '../bloc/${moduleName}_bloc.dart';
@@ -147,8 +142,7 @@ function generateStateFactory(moduleName: string, factoryPath: string) {
   );
   const className = getClassName(moduleName, "state_factory");
 
-  const template = `
-part of '../import/${moduleName}_import.dart';
+  const template = `part of '../import/${moduleName}_import.dart';
 
 class ${className}Factory extends BaseFactory {
   @override
