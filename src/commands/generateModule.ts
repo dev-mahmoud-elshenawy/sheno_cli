@@ -100,7 +100,7 @@ class ${className}Screen extends StatefulWidget {
   _${className}ScreenState createState() => _${className}ScreenState(bloc);
 }
 
-class _${className}ScreenState extends BaseScene<${className}Bloc, ${className}Screen, dynamic> {
+class _${className}ScreenState extends BaseScreen<${className}Bloc, ${className}Screen, dynamic> {
   _${className}ScreenState(super.bloc);
 
   @override
@@ -125,14 +125,13 @@ function generateImport(moduleName: string, importPath: string) {
 
   const template = `
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../bloc_core/base/base_import.dart';
+import 'package:opticore/opticore.dart';
 
 part '../bloc/${moduleName}_bloc.dart';
 part '../event/${moduleName}_event.dart';
 part '../screen/${moduleName}_screen.dart';
 part '../state/${moduleName}_state.dart';
-part '../factory/${moduleName}_state_factory.dart';
+part '../factory/${moduleName}_factory.dart';
   `;
 
   writeFile(importFilePath, template);
@@ -144,23 +143,23 @@ part '../factory/${moduleName}_state_factory.dart';
 function generateStateFactory(moduleName: string, factoryPath: string) {
   const factoryFilePath = path.join(
     factoryPath,
-    `${moduleName}_state_factory.dart`
+    `${moduleName}_factory.dart`
   );
   const className = getClassName(moduleName, "state_factory");
 
   const template = `
 part of '../import/${moduleName}_import.dart';
 
-class ${className}StateFactory extends BaseStateFactory {
+class ${className}Factory extends BaseFactory {
   @override
   BaseState getState<M>(M data) {
-    return throw Exception('No Data in ${className}StateFactory');
+    return DefaultState();
   }
 }
   `;
 
   writeFile(factoryFilePath, template);
   LoggerHelpers.success(
-    `State Factory file ${moduleName}_state_factory.dart created in ${factoryPath}`
+    `State Factory file ${moduleName}_factory.dart created in ${factoryPath}`
   );
 }
