@@ -36,7 +36,7 @@ part of '../import/${moduleName}_import.dart';
 
 class ${className}Bloc extends BaseBloc {
     ${className}Bloc() : super(
-    ${className}StateFactory(), 
+    ${className}Factory(), 
     initialState: ${className}InitialState(),
     ) {}
 
